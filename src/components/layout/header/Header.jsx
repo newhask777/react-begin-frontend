@@ -11,7 +11,7 @@ const Header = ({backLink}) => {
 
 	return <header className={styles.header}>
 		<button onClick={() => {}}>
-			<FaArrowLeft />
+			<FaArrowLeft fill='#fff' fontSize={29} />
 		</button>
 		{/* User profile */}
 			<Hamburger />
