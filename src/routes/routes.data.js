@@ -1,4 +1,5 @@
 import Auth from '../components/screens/auth/Auth'
+// import AuthBasic from '../components/screens/auth/AuthBasic'
 import Home from '../components/screens/home/Home'
 import NewWorkout from '../components/screens/new-workout/NewWorkout'
 import Profile from '../components/screens/profile/Profile'

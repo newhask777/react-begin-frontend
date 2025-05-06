@@ -10,12 +10,12 @@ import styles from './Home.module.scss'
 
 function Home() {
 	const { isAuth } = useAuth()
-
 	const navigate = useNavigate()
+
 	return (
-		<Layout bgImage='/images/home-bg.jpg'>
-			<Button clickHandler={() => navigate(!isAuth ? '/new-workout' : '/auth')}>
-				{isAuth ? 'New' : 'Sign in'}
+		<Layout bgImage="/images/home-bg.jpg">
+			<Button clickHandler={() => navigate(!isAuth ?  '/auth': '/new-workout')}>
+				{!isAuth ? 'Sign in' : 'New'}
 			</Button>
 			<h1 className={styles.heading}>EXERCISES FOR THE SHOULDERS</h1>
 			{/* TODO: Counters */}
