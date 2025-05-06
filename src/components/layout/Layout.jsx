@@ -16,6 +16,7 @@ const Layout = ({ children, bgImage, heading = '', backLink = '/' }) => {
 			{heading && <h1 className={styles.heading}>{heading}</h1>}
 
 			{children && <div>{children}</div>}
+			
 		</section>
 	)
 }
