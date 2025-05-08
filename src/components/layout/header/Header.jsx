@@ -1,29 +1,28 @@
-import { useAuth } from '../../../hooks/useAuth'
-import styles from './Header.module.scss'
-import { FaArrowLeft } from "react-icons/fa6"
-import { CiUser } from "react-icons/ci"
-import Hamburger from '../hamburger/Hamburger'
+import { IoMdArrowBack } from 'react-icons/io'
+import { SlUser } from 'react-icons/sl'
 import { useLocation, useNavigate } from 'react-router'
 
+import { useAuth } from '../../../hooks/useAuth'
 
-const Header = ({backLink}) => {
-	/* TODO: React router useHistory */
+import Hamburger from '../hamburger/Hamburger'
 
+import styles from './Header.module.scss'
+
+const Header = ({ backLink = '' }) => {
 	const { pathname } = useLocation()
 	const navigate = useNavigate()
-	const {isAuth} = useAuth()
 
-	const arrowIcon = <FaArrowLeft fill='#fff' fontSize={29} />
+	const { isAuth } = useAuth()
 
 	return (
 		<header className={styles.header}>
-			{pathname !== '/' ? (
+			{pathname !== '/' || pathname !== '/auth' || !isAuth ? (
 				<button
 					onClick={() => {
-						navigate(backLink)
+						navigate(isAuth ? backLink : '/auth')
 					}}
 				>
-					<FaArrowLeft fill='#fff' fontSize={29} />
+					<IoMdArrowBack fill='#fff' fontSize={29} />
 				</button>
 			) : (
 				<button
@@ -31,13 +30,12 @@ const Header = ({backLink}) => {
 						navigate('/profile')
 					}}
 				>
-					<CiUser fill='#fff' fontSize={25} />
+					<SlUser fill='#fff' fontSize={25} />
 				</button>
 			)}
-			<Hamburger />
+			{isAuth && <Hamburger />}
 		</header>
 	)
 }
-
 
 export default Header
