@@ -29,7 +29,7 @@ const NewExercise = () => {
 
 	const { isSuccess, error, isLoading, mutate} = useMutation({
 		mutationKey: ['create exercise'],
-		mutationFn: body => ExerciseService.create(body),
+		mutationFn: () => ExerciseService.create(body),
 		onSuccess: () => {
 			reset()
 		}
